@@ -1,4 +1,0 @@
-{
-    "git.ignoreLimitWarning": true,
-    "solidity.defaultCompiler": "localNodeModule"
-}
