@@ -29,7 +29,7 @@ const ElectionStatus = () => {
           console.log("Election started")
           setAlert("Election Ended successfully")
         await  startElectStatus()
-          window.location.reload()
+
       } catch (error){
         console.log("Error: ", error)
         setAlert(error.message, "red")
@@ -51,7 +51,7 @@ const ElectionStatus = () => {
           
           console.log("Election started")
           setAlert("Election Started ...")
-          window.location.reload()
+
       } catch (error){
         console.log("Error Uploading Data: ", error)
         setAlert(error.message, "red")
