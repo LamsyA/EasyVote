@@ -5,7 +5,7 @@ import VoterDashboard from './VoterDashboard'
 const VoterHome = () => {
     const [eachVoter] = useGlobalState("eachVoter")
     const [connectedAccount] = useGlobalState("connectedAccount")
-    {console.log("nrewioi :", eachVoter)}
+   
 
   return (
     <div>

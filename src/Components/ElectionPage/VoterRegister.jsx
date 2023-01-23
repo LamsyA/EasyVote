@@ -52,7 +52,7 @@ const VoterRegister = () => {
          
         const metadataURI = `https://ipfs.io/ipfs/${created.path}`
         const newData = {  name, metadataURI, age}
-        console.log(newData)
+     
    await addVoter(newData) 
    setAlert(`${name} Successfully Added...`)
     closeToggle()

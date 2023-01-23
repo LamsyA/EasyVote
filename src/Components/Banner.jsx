@@ -8,7 +8,7 @@ import "./logo.png"
 const Banner = () => {
 
 
-   console.log("election.....", startElectStatus())
+  //  console.log("election.....", startElectStatus())
    const [connectedAccount] = useGlobalState('connectedAccount')
 
    const [start] = useGlobalState("start")
@@ -19,7 +19,7 @@ const Banner = () => {
    startElectStatus() 
   }, [start]) 
 
-  {console.log("start:............", start)}
+  // {console.log("start:............", start)}
   return (
     <div>
     <div className='p-8 mx-auto '>

@@ -7,7 +7,7 @@ const VoteSummary = () => {
   const [allCand] = useGlobalState("allCand")
   const [winnerDetails] = useGlobalState("winnerDetails")
 
-  console.log("winnerDetails :...", winnerDetails)
+ 
   const [data,setData] = useState([{
     
   }])

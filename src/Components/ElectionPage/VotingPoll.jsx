@@ -22,7 +22,7 @@ const VotingPoll = () => {
                 <div className='grid grid-cols-3 lg:grid-col-4
             gap-6 md:gap-4 lg:gap-4 py-8  '>
 
-                {console.log(allCand)}                    
+                                 
                     {allCand.map((candidate, i)=> (
                         <Card key={i} candidate={candidate}/>
                     ))}   

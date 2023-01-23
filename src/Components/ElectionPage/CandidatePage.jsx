@@ -22,7 +22,7 @@ const CandidatePage = () => {
                 <div className='mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4
        gap-6 md:gap-4 lg:gap-6 py-2.5     '>
 
-                {console.log(allCand)}
+              
                     
                     {allCand.map((candidate, i)=> (
                         <Card key={i} candidate={candidate}/>

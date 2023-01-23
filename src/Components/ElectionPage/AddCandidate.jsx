@@ -55,7 +55,7 @@ const AddCandidate = () => {
         setLoadingMsg(`Adding ${name} in progress...`)
         const metadataURI = `https://ipfs.io/ipfs/${created.path}`
         const newData = { address,age,name, metadataURI}
-        console.log(newData)
+      
    await addCan(newData)
   //  console.log(newData)
      setAlert(`${name} Successfully Added...`)

@@ -162,7 +162,7 @@ const addVoter = async ({ name ,metadataURI, age }) => {
   const contract = await getEtheriumContract()
     const account = getGlobalState('connectedAccount')
    const candidate =  await contract.methods.Addvoter(name ,metadataURI, age ).send({ from: account})
-        console.log(candidate)
+     
     return true
   } catch (error) {
     setAlert("Action Reverted ", 'red')
@@ -177,7 +177,7 @@ const voterVote = async ({ address ,id}) => {
   const contract = await getEtheriumContract()
     const account = getGlobalState('connectedAccount')
    const newVote =  await contract.methods.vote(address , id).send({ from: account})
-        console.log(newVote)
+      
       window.location.reload()
     return true
   } catch (error) {

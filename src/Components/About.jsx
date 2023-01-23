@@ -31,10 +31,10 @@ const About = () => {
              <li className='mb-2'> Click on Voter Login</li>
              <li className='mb-2'>Register yourself</li>
              <li className='mb-2'>Wait For Admin to start the Election</li>
-            <h className='mb-2'>Note, Once the Admin starts the election, 
+            <span className='mb-2'>Note, Once the Admin starts the election, 
             the lock on the Navbar will be opened.
             You will not be able to register
-             and the poll will be opened for voting.</h> 
+             and the poll will be opened for voting.</span> 
             
             </p>
 
