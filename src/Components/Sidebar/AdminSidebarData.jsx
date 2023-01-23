@@ -1,16 +1,11 @@
 import React from 'react'
 import * as AiIcons from "react-icons/ai"
 import {VscArrowSwap} from "react-icons/vsc"
-import {CgUserList} from "react-icons/cg"
+import {SiStatuspage} from "react-icons/si"
 import {HiViewList} from "react-icons/hi"
 
 export const AdminSidebarData =[
-    {
-        title:"Home",
-        path:'/Sidebar',
-        icon: <AiIcons.AiFillHome/>,
-        cName: 'nav-text '
-    },
+
     {
         title:"Add Candidate",
         path:'/AddCandidate',
@@ -28,6 +23,12 @@ export const AdminSidebarData =[
         path:'/CandidatePage',
         icon: <HiViewList/>,
         cName: 'nav-text'
+    },
+    {
+        title:"Vote Summary",
+        path:'/Summary',
+        icon: <SiStatuspage/>,
+        cName: 'nav-text '
     },
 
 ]

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { endElectStatus, startElectStatus } from '../Blockchain.services'
 import { useGlobalState } from '../store'
 import "./logo.png"
@@ -18,7 +19,6 @@ const Banner = () => {
    startElectStatus() 
   }, [start]) 
 
-  const URI = `https://www.aclu-ky.org/sites/default/files/styles/hero_big_wide_1200x530/public/field_banner_image/2022_august_restoration_of_voting_right_webpage_header_0.png?itok=9yfgR2Pe`
   {console.log("start:............", start)}
   return (
     <div>
@@ -32,10 +32,25 @@ const Banner = () => {
         <p className='flex  items-end md:justify-end justify-center dark:text-[#f7ff85] uppercase shadow-sm mt-4'> 
           {start == true && ended==false ? 'Election In Progress': 'It is not Yet time for Election'}
         </p>
-        <div>
-        <img src={URI} alt="voting" className="mx-36  object-contain" /> </div>
         </div>
-
+        {connectedAccount ? (<div className='flex flex-col mt-10  justify-center '>
+          <div className='flex justify-center items-center'>
+          <Link to='/VoterHome' className='flex flex-col justify-center items-center text-2xl  '>
+            {<button className=' uppercase  justify-center items-center
+         hover:bg-blue-900 bg-blue-600 rounded-full px-5 py-2 shadow-xl
+          shadow-black'> Voter Login</button>}           
+          </Link>
+          </div>
+          <div className='flex mt-5 justify-center '>
+          <Link to='/CandidatePage' className='flex flex-col justify-center items-center text-2xl  '>
+          {<button className=' uppercase  justify-center items-center
+         hover:bg-amber-900 bg-blue-600 rounded-full px-6 py-3 shadow-xl
+          shadow-black'> Admin Login</button>}
+          </Link>
+          </div>
+        </div>
+        ): null}
+        
         </div>
   
         

@@ -96,7 +96,7 @@ const changeImage = async (e) => {
     <div className='flex '>
         <div className='mx-auto   dark:text-white
          mt-10 transparent cursor-pointer hover:animate-pulse font-bold text-2xl' >
-        <p className='flex mb-5 text-start uppercase items-center
+        <p className='flex  mb-5 text-center uppercase items-center
         text-gradient dark:text-blue-500 justify-center '>Only Admin can Add candidate, 
         all right reserved for the Admin
           </p>

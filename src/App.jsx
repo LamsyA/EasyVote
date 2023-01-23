@@ -25,6 +25,8 @@ import { useState } from 'react'
 import VoteSummary from './Components/ElectionPage/VoteSummary'
 import Vote from './Components/ElectionPage/Vote'
 import VoterHome from './Components/ElectionPage/VoterHome'
+import Summary from './Components/ElectionPage/Summary'
+import About from './Components/About'
 
 
 const App = () => {
@@ -53,12 +55,10 @@ const App = () => {
     <Header />
 
 
-    {/* <BrowserRouter> */} 
 
       <Routes>
   
     <Route path="/" exact element={<Home/>} />
-    {/* <Route  path="/Voterscard/" element={<Voterscard/>} /> */}
     <Route  path="/AddCandidate/" element={<AddCandidate/>} />
     <Route  path="/Sidebar/" element={<Sidebar/>} />
     <Route  path="/ElectionStatus/" element={<ElectionStatus/>} />
@@ -68,13 +68,15 @@ const App = () => {
     <Route  path="/VotingPoll/"  element={<VotingPoll/>} />
     <Route  path="/VoteSummary/"  element={<VoteSummary/>} />
     <Route  path="/VoterHome/"  element={<VoterHome/>} />
+    <Route  path="/Summary/"  element={<Summary/>} />
     </Routes>
-    
-    {/* </BrowserRouter> */}
+
 
        <Vote/>
+       <About/>
         <Loading/>
         <Alert/>
+        
       </div>
 
     

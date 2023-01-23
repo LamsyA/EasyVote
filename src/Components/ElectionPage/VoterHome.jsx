@@ -4,6 +4,7 @@ import VoterDashboard from './VoterDashboard'
 
 const VoterHome = () => {
     const [eachVoter] = useGlobalState("eachVoter")
+    const [connectedAccount] = useGlobalState("connectedAccount")
     {console.log("nrewioi :", eachVoter)}
 
   return (
@@ -29,7 +30,7 @@ const VoterHome = () => {
         className='flex object-cover shadow-lg shadow-black rounded-full h-40 w-40
         mb-3   justify-center items-center'/>
         </div>
-        <h4 className=' text-white font-semibold'> Voter ID #{ eachVoter.voter_voterId}  </h4>
+        <h4 className=' text-white font-semibold'> Voter ID #{ connectedAccount ?   (`${eachVoter.voter_voterId}`): null } </h4>
         <p className='text-pink-300 text-sm my-2 font-medium' >Voter's Name: {eachVoter.voter_name}</p>
         <div className='flex justify-between items-center mt-3 text-white'>
             <div className='flex flex-col'>

@@ -2,7 +2,7 @@ import { GiVote} from "react-icons/gi"
 import { MdLightMode} from "react-icons/md"
 import {FaLock, FaMoon} from "react-icons/fa" 
 import { useEffect, useState } from "react"
-import { truncate, useGlobalState } from '../store'
+import { setGlobalState, truncate, useGlobalState } from '../store'
 import { connectWallet, endElectStatus, startElectStatus } from "../Blockchain.services"
 import {FaUnlockAlt} from "react-icons/fa"
 
@@ -55,7 +55,7 @@ const Header = () => {
                     </span>
                 </a>
 
-                <p className='flex  items-end  justify-center dark:text-[#ebff11]
+                <div className='flex  items-end  justify-center dark:text-[#ebff11]
                  text-[#ffac11] uppercase shadow-sm mt-4'> 
           {start == true && ended==false ?
 
@@ -70,10 +70,15 @@ const Header = () => {
             <FaLock
                     className="cursor-pointer text-blue-500 ml-10  "
                      size={35}/> <span className="justify-center item-center 
-                     font-bold text-xs mr-10 text-gradient">Voting not started</span>
+                     md:font-bold  text-xs mr-10 text-gradient">Voting not started</span>
             </div> )
            }
-            </p>
+           </div>
+           <div>
+             <button className="mr font-semibold text-lg text-gradient"
+             onClick={() => setGlobalState("aboutModal", "scale-100")}>How to Vote</button>
+             </div>
+            
 
                 <div className="flex justify-center items-center space-x-5">
                     {darken ? 
