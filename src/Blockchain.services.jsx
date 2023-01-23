@@ -69,7 +69,7 @@ const startElect = async () => {
     const account = getGlobalState('connectedAccount')
     const started =  await contract.methods.startElection().send({from: account}).then(function(receipt) {
     console.log("Election Started Successfully");
-    window.location.reload()
+
     return true;
     })
     
@@ -101,7 +101,6 @@ const endElect = async () => {
     const account = getGlobalState('connectedAccount')
     const end =  await contract.methods.endElection().send({from: account}).then(function(receipt) {
     // console.log(end);
-    window.location.reload()
     return true
     })   
     console.log("Election has Ended")  
