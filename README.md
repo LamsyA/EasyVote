@@ -3,12 +3,19 @@
 ## This is a Decentralized Voting system
 
 Link to live Demo: [**>>EasyVote**](https://easy-vote-wx6z.vercel.app/)
-
 :
 
 ![EasyProject](./src/assets/0.JPG)
 
-<center><figcaption>EasyVote Project</figcaption></center>
+<center><figcaption>EasyVote Login </figcaption></center>
+
+![EasyProject](./src/assets/1.JPG)
+
+<center><figcaption>Voter Page</figcaption></center>
+
+![EasyProject](./src/assets/3.JPG)
+
+<center><figcaption>Admin Page</figcaption></center>
 
 ## Technology
 
