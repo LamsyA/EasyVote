@@ -6,7 +6,7 @@ Link to live Demo: [**>>EasyVote**](https://easy-vote-wx6z.vercel.app/)
 
 :
 
-[EasyProject](../EasyVote/src/assets/0.JPG)
+![EasyProject](./src/assets/0.JPG)
 
 <center><figcaption>EasyVote Project</figcaption></center>
 
