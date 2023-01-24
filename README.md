@@ -59,7 +59,7 @@ To run the program follow these steps:
 - 👀 [Web3Js](https://docs.ethers.io/v5/)
 - 🎅 [Faucet](https://faucets.chain.link/rinkeby)
 - 🤖 [Ganache](https://trufflesuite.com/ganache/index.html)
-  -- 🤖 [Vite](https://vitejs.dev/guide/)
+- 🤖 [Vite](https://vitejs.dev/guide/)
 - ✨ [Live Demo](https://easy-vote-wx6z.vercel.app/)
 - ⚽ [Metamask](https://metamask.io/)
 - 🚀 [Remix Editor](https://remix.ethereum.org/)
@@ -70,6 +70,7 @@ To run the program follow these steps:
 
 ## Rules of engagement
 
+- The deployer account of the application is always the Admin
 - Only Admin can start and end the election.
 - only admin can add candidate.
 - You can only register when the election has note started
@@ -87,6 +88,8 @@ for voting **
 4. fill all the neccessary information
    Wait for the Admin to start the Election.
    Once the admin starts the election, You will be able to Vote.
+5. once the election starts navigate to the Voting poll page to vote for
+   your desired candidate.
 
 Note,For you to be able to register Your age must be 18years and above..
 
@@ -98,5 +101,8 @@ Note,For you to be able to register Your age must be 18years and above..
 4. fill all the neccessary information
    Wait for the Admin to start the Election.
    Once the admin starts the election, You will be able to Vote.
+
+5. once the election starts navigate to the Voting poll page to vote for
+   your desired candidate.
 
 Note,For you to be able to register Your age must be 18years and above..
