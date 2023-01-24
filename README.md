@@ -57,7 +57,7 @@ To run the program follow these steps:
 ## Useful links
 
 - 👀 [Web3Js](https://docs.ethers.io/v5/)
-- 🎅 [Faucet](https://faucets.chain.link/rinkeby)
+- 🎅 [Faucet](https://faucets.chain.link/goerli)
 - 🤖 [Ganache](https://trufflesuite.com/ganache/index.html)
 - 🤖 [Vite](https://vitejs.dev/guide/)
 - ✨ [Live Demo](https://easy-vote-wx6z.vercel.app/)
