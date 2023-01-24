@@ -52,7 +52,7 @@ const Card = ({candidate}) =>{
         className='flex object-cover shadow-lg shadow-black rounded-full h-48 w-48
         mb-3   justify-center hover:opacity-90 items-center'/>
         </div>
-        <h4 className=' text-white font-semibold'> Candidate #{candidate.candidateId}  </h4>
+        <h4 className=' text-white font-semibold'> Candidate ID #{candidate.id}  </h4>
         <p className='text-yellow-400 text-sm my-1' > Name: {candidate.name}</p>
         <div className='flex justify-between items-center mt-3 text-white'>
             <div className='flex flex-col'>

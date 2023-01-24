@@ -17,20 +17,20 @@ const ElectionStatus = () => {
       e.preventDefault()
     if (startElect == true) 
     return 
-        setLoadingMsg("Stopping Election in progress ...")
+        // setLoadingMsg("Stopping Election in progress ...")
         try{
-          await endElect();
-
-          // setIsElectionInProgress(false)
-
-        setGlobalState("start", false)
-
-          
+         const result = await endElect();
+          setGlobalState("start", false)
           setGlobalState("ended",true)
-          console.log("Election started")
-          setAlert("Election Ended successfully")
+          
+          
+          
         await  startElectStatus()
-
+        // if (start === true ) { 
+        //   setAlert("Election successfully ended")}
+        //   else if (startElectStatus() === false )
+        //    { setAlert("Error occurred", "red") }
+        
 
       } catch (error){
         console.log("Error: ", error)
@@ -42,18 +42,21 @@ const ElectionStatus = () => {
         e.preventDefault()
       if (startElect == false) 
       return 
-        setLoadingMsg("Wait while we start the Election ...")
+        // setLoadingMsg("Wait while we start the Election ...")
         try{
-          await startElect();
+         const result = await startElect();
           // setIsElectionInProgress(true)
 
 
           setGlobalState("start", true)
           setGlobalState("ended",false)
           
-          console.log("Election started")
-          setAlert("Election Started ...")
-          navigateTo('/CandidatePage')
+          // if (startElectStatus() === false ) { 
+          //   setAlert("Election Started")}
+          //   else if (startElectStatus() === true )
+          //   {
+          //      setAlert("Error occurred", "red") }
+          // navigateTo('/CandidatePage')
       } catch (error){
         console.log("Error Uploading Data: ", error)
         setAlert(error.message, "red")

@@ -50,7 +50,8 @@ const AddCandidate = () => {
 
     const handleSubmit = async (e) => {
     e.preventDefault()
-    if(!address || !age || !name  ) return
+    if(!address || !age || !name   ) return
+    
     setGlobalState("modal", "scale-0")
     setLoadingMsg("Adding New Candidate...")
 
@@ -58,11 +59,15 @@ const AddCandidate = () => {
         const created = await client.add(fileUrl)
         setLoadingMsg(`Adding ${name} in progress...`)
         const metadataURI = `https://ipfs.io/ipfs/${created.path}`
+        
+        
         const newData = { address,age,name, metadataURI}
       
-   await addCan(newData)
-  //  console.log(newData)
-     setAlert(`${name} Successfully Added...`)
+        const result = await addCan(newData)
+        //  console.log(newData)
+        if (result === true ) { 
+        setAlert(`${name} Successfully Added...`)}
+        else { setAlert("Error adding Candidate details", "red") }
      
       navigateTo('/CandidatePage')
     closeToggle()

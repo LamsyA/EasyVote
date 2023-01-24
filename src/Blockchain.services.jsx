@@ -146,9 +146,8 @@ const addCan = async ({ address, age, name ,metadataURI }) => {
   const contract = await getEthereumContract()
     const account = getGlobalState('connectedAccount')
    const candidate =  await contract.methods.addCandidate(address, age, name ,metadataURI ).send({ from: account})
-        //  console.log(candidate)
-        // window.location.reload()
-    return true
+   console.log(candidate) 
+   return true
     
   } catch (error) {
    setAlert("Uploading Candidate Data Failed...", "red")

@@ -5,7 +5,6 @@ import { setAlert, setGlobalState, setLoadingMsg, useGlobalState } from '../../s
 import { voterVote } from '../../Blockchain.services'
 
 
-
 const Vote = () => {
 
     const imageURL = 'https://media.istockphoto.com/id/1316420668/vector/user-icon-human-person-symbol-social-profile-icon-avatar-login-sign-web-user-symbol.jpg?s=612x612&w=0&k=20&c=AhqW2ssX8EeI2IYFm6-ASQ7rfeBWfrFFV4E87SaFhJE='
@@ -30,9 +29,12 @@ const Vote = () => {
         setLoadingMsg("Wait while we process your Vote")
           const vote = { address,id}
           setLoadingMsg("Your Vote will be reverted if the poll is not opened for voting. Please wait...")
-     await voterVote(vote)
+      const result = await voterVote(vote)
+     if (result === true ) { 
+      setAlert( "Successfully Voted!");}
+      else { setAlert("Error Voting ", "red") }
       
-        setAlert( "Successfully Voted!");
+        
        
 
       closeToggle()
@@ -117,7 +119,7 @@ const Vote = () => {
                 <small className="text- dark:text-green-400 text-fuchsia-500 ">Candidate ID</small>
                 <p className="ml-8 font-bold dark:text-green-500 text-fuchsia-500 text-sm ">
                  
-                   {candidate?.candidateId}</p>
+                   {candidate?.id}</p>
               </div>
             </div>
           </div>

@@ -44,20 +44,27 @@ const VoterRegister = () => {
     const handleSubmit = async (e) => {
     e.preventDefault()
     if( !age || !name  ) return
+    else if(age <= 17) {
+      closeToggle()
+      return setAlert("Under age You Can't Register", "red")
+    }
     setGlobalState("modal", "scale-0")
     setLoadingMsg("Wait while we upload your data...")
-
+    
     try{
         const created = await client.add(fileUrl)
-         setLoadingMsg(`Registering ${name} in progress...`)
-         
+        setLoadingMsg(`Registering ${name} in progress...`)
+        
         const metadataURI = `https://ipfs.io/ipfs/${created.path}`
         const newData = {  name, metadataURI, age}
      
-   await addVoter(newData) 
-   setAlert(`${name} Successfully Added...`)
+       const result = await addVoter(newData) 
+        console.log("Added")
+        if (result === true ) { 
+          setAlert(`${name} Successfully Added...`)}
+          else { setAlert("Error adding your details", "red") }
   
-   navigateTo('/VoterDashboard')
+   navigateTo('/VotingPoll')
     closeToggle()
     
     } catch (error){
