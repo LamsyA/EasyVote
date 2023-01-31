@@ -31,14 +31,14 @@ const VoterHome = () => {
         mb-3   justify-center items-center'/>
         </div>
         <h4 className=' text-white font-semibold'> Voter ID #{ connectedAccount ?   (`${eachVoter.voter_voterId}`): null } </h4>
-        <p className='text-pink-300 text-sm my-2 font-medium' >Voter's Name: {eachVoter.voter_name}</p>
+        <p className='text-pink-300 text-sm my-2 font-medium' >Voter's Name: { connectedAccount ?  (`${eachVoter.voter_name}`) : null}</p>
         <div className='flex justify-between items-center mt-3 text-white'>
             <div className='flex flex-col'>
-            <small className='text-xs'> Age: {eachVoter.voter_age}</small>
+            <small className='text-xs'> Age: { connectedAccount ?  (`${eachVoter.voter_age}`) : null}</small>
             {/* <p className='text-sm font-semibold'>  Address {truncate(singleVoterdetails._address, 4,4,11)}</p> */}
             </div>
            <button className="shadow-lg shadow-black text-white  bg-[#f60808]
-            hover:bg-[#bd267f] cursor-pointer rounded-full px-1.5 text-sm py-1">Voted For: { eachVoter.voter_vote}  </button>
+            hover:bg-[#bd267f] cursor-pointer rounded-full px-1.5 text-sm py-1">Voted For: { connectedAccount ?  (`${eachVoter.voter_vote}`) : null}   </button>
         </div>
        
     </div>
