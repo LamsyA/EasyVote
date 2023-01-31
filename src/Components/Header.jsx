@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { setGlobalState, truncate, useGlobalState } from '../store'
 import { connectWallet, endElectStatus, startElectStatus } from "../Blockchain.services"
 import {FaUnlockAlt} from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 
 
@@ -46,14 +47,14 @@ const Header = () => {
         <div className='px-5 w-full flex flex-wrap items-center
         justify-between'>
 
-            <div className='grow flex justify-between items-center p-2'>
-                <a  className='flex justify-start items-center space-x-3'  >
+            <div className='grow flex justify-between items-center p-2 '>
+                <Link to="/" className='flex justify-start items-center space-x-3 cursor-pointer'  >
                     <GiVote 
                     className="text-blue-700" size={40}/>
                     <span className="invisible md:visible dark:text-gray-300 text
                     font-bold uppercase text-gradient text-lg">EasyVote
                     </span>
-                </a>
+                </Link>
 
                 <div className='flex  items-end  justify-center dark:text-[#ebff11]
                  text-[#ffac11] uppercase shadow-sm mt-4'> 
@@ -62,20 +63,20 @@ const Header = () => {
           (<div>
              <FaUnlockAlt
            className="cursor-pointer animate-pulse "
-            size={35}/><p className="font-semibold text-lg text-gradient">LIVE</p>
+            size={35}/><p className="invisible md:visible font-semibold text-lg text-gradient">LIVE</p>
              </div>)
            : 
           ( 
-          <div>
+          <div className="flex items-center mb-3">
             <FaLock
                     className="cursor-pointer text-blue-500 ml-10  "
-                     size={35}/> <span className="justify-center item-center 
-                     md:font-bold  text-xs mr-10 text-gradient">Voting not started</span>
+                     size={35}/> <span className="md:font-bold  text-lg
+                     ml-3 text-gradient invisible md:visible">Voting not started</span>
             </div> )
            }
            </div>
            <div>
-             <button className="mr font-semibold text-lg text-gradient"
+             <button className="mr text-xs font-semibold md:text-lg text-gradient "
              onClick={() => setGlobalState("aboutModal", "scale-100")}>How to Vote</button>
              </div>
             

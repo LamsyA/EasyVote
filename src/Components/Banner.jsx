@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { endElectStatus, startElectStatus } from '../Blockchain.services'
 import { useGlobalState } from '../store'
-import "./logo.png"
+import logo from '../assets/logo.png'
+import Typewriter from 'typewriter-effect';
 
 
 const Banner = () => {
@@ -49,7 +50,47 @@ const Banner = () => {
           </Link>
           </div>
         </div>
-        ): null}
+        ): 
+        <div className='flex items-center justify-center  '> 
+          <div className='w-1/2'>
+          <img src={logo}
+          />
+          </div>
+          <div className='w-1/2'>
+           <div className='mt-10 mb-10 font-bold text-5xl dark:text-white
+            text-blue-500 uppercase'>
+          <Typewriter
+                options={{
+                  strings: [
+                    
+                    "Blockchain-based voting",
+                    "Peer-to-peer election process",
+                    "Distributed voting system",
+                    "Secure and transparent voting",
+                    "Decentralized vote counting",
+                    "Empowered citizens through decentralization",
+                    "Democratizing the voting process",
+                    "Trustless voting mechanism",
+                    "No intermediaries in the voting process",
+                    "Voting on the blockchain",
+                    'Faultless System',
+                  ],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+          
+          </div>
+          <div> 
+            <p className='font-semibold dark:text-slate-400 text-slate-900 text-3xl'> EasyVote uses 
+            revolutionary approach to the traditional
+             election process that utilizes the power of blockchain technology to create a secure,
+              transparent, and tamper-proof method of conducting election.</p>
+          </div>
+          </div>
+          
+        </div>
+       }
         
         </div>
   
