@@ -7,6 +7,7 @@ import { Buffer } from 'buffer'
 import { addVoter } from '../../Blockchain.services'
 import Loading from '../Loading'
 import VoterDashboard from './VoterDashboard'
+import { useNavigate } from 'react-router-dom'
 
 const auth =
   'Basic ' +
@@ -34,7 +35,7 @@ const VoterRegister = () => {
     const [modal] = useGlobalState('modal')
 
 
-        
+    const navigateTo = useNavigate();;    
         
     const handleFileChange = (event) => {
         setPicture(URL.createObjectURL(event.target.files[0]));
@@ -55,7 +56,8 @@ const VoterRegister = () => {
      
    await addVoter(newData) 
    setAlert(`${name} Successfully Added...`)
-   window.location.reload()
+  
+   navigateTo('/VoterDashboard')
     closeToggle()
     
     } catch (error){

@@ -6,6 +6,7 @@ import Sidebar from '../Sidebar/Sidebar'
 import { create } from 'ipfs-http-client'
 import { Buffer } from 'buffer'
 import { addCan } from '../../Blockchain.services'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -36,6 +37,9 @@ const AddCandidate = () => {
      const [picture, setPicture] = useState(null);
 
     const [modal] = useGlobalState('modal')
+    const navigateTo = useNavigate();
+
+
 
 
     const ImgUrl = 'https://media.istockphoto.com/id/1316420668/vector/user-icon-human-person-symbol-social-profile-icon-avatar-login-sign-web-user-symbol.jpg?s=612x612&w=0&k=20&c=AhqW2ssX8EeI2IYFm6-ASQ7rfeBWfrFFV4E87SaFhJE='
@@ -59,7 +63,8 @@ const AddCandidate = () => {
    await addCan(newData)
   //  console.log(newData)
      setAlert(`${name} Successfully Added...`)
-     window.location.reload()
+     
+      navigateTo('/CandidatePage')
     closeToggle()
     } catch (error){
       // console.log("Error Uploading Data: ", error)

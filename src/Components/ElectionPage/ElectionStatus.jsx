@@ -3,7 +3,7 @@ import { electionStatus, endElect, startElect, startElectStatus } from '../../Bl
 import Sidebar from '../Sidebar/Sidebar'
 import { useEffect, useState } from 'react' 
 import { setLoadingMsg, setAlert, useGlobalState, setGlobalState } from '../../store'
-
+import { useNavigate } from 'react-router-dom';
 
 
 const ElectionStatus = () => {
@@ -12,6 +12,7 @@ const ElectionStatus = () => {
   const [start] = useGlobalState("start")
     //  const [isElectionInProgress, setIsElectionInProgress] = useState(false);
 
+    const navigateTo = useNavigate();
   const endit =async (e) => {
       e.preventDefault()
     if (startElect == true) 
@@ -29,6 +30,7 @@ const ElectionStatus = () => {
           console.log("Election started")
           setAlert("Election Ended successfully")
         await  startElectStatus()
+
 
       } catch (error){
         console.log("Error: ", error)
@@ -51,7 +53,7 @@ const ElectionStatus = () => {
           
           console.log("Election started")
           setAlert("Election Started ...")
-
+          navigateTo('/CandidatePage')
       } catch (error){
         console.log("Error Uploading Data: ", error)
         setAlert(error.message, "red")
@@ -60,24 +62,7 @@ const ElectionStatus = () => {
       
 
      
-      // const [loaded, setLoaded] = useState(false)
-
-      // useEffect (  () => {
-      //   const loadData = async () => {
-      //     console.log('Blockchain loaded')
-      //     setLoaded(true);
-      //     const result = await setIsElectionInProgress() 
-      //     loaded()
-      // };
-      // loadData();
-        
-
-      // },[])
-
-
-  // useEffect(() => {
-  //    setIsElectionInProgress() ;
-  // }, [])
+     
 
     {startElectStatus()}
     electionStatus()

@@ -147,7 +147,7 @@ const addCan = async ({ address, age, name ,metadataURI }) => {
     const account = getGlobalState('connectedAccount')
    const candidate =  await contract.methods.addCandidate(address, age, name ,metadataURI ).send({ from: account})
         //  console.log(candidate)
-        window.location.reload()
+        // window.location.reload()
     return true
     
   } catch (error) {
@@ -179,7 +179,7 @@ const voterVote = async ({ address ,id}) => {
     const account = getGlobalState('connectedAccount')
    const newVote =  await contract.methods.vote(address , id).send({ from: account})
       
-      window.location.reload()
+      // window.location.reload()
     return true
   } catch (error) {
     setAlert("Vote Reverted ", 'red')
@@ -243,7 +243,7 @@ const getCandidate = async () => {
       //  console.log(allCand)
        setGlobalState('singleCandidateData', singleCandidateData)
        setGlobalState('allCand', allCand)
-       window.location.reload()
+      //  window.location.reload()
     })  
      
 }  catch (error) {

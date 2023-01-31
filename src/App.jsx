@@ -37,12 +37,12 @@ const App = () => {
       console.log('Blockchain loaded')
       setLoaded(true);
       const result = await isWallectConnected()
-    await   startElectStatus()
-    await getCandidate() 
-    await winner()
-    electionStatus()
-    getVoter()
-    getEachVoter()
+   await     startElectStatus()
+   await getCandidate() 
+   await winner()
+   await  electionStatus()
+   await  getVoter()
+   await getEachVoter()
   };
    loadData();
     

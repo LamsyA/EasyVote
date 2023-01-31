@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
 import {setGlobalState, truncate, useGlobalState } from '../../store'
 import Sidebar from '../Sidebar/Sidebar'
 
@@ -8,7 +9,6 @@ const CandidatePage = () => {
    
     const [allCand] = useGlobalState('allCand') 
     const [showModal] = useGlobalState("showModal")
-
 
     
   return (
