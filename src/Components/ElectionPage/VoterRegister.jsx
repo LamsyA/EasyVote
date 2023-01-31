@@ -49,7 +49,7 @@ const VoterRegister = () => {
 
     try{
         const created = await client.add(fileUrl)
-         setLoadingMsg(`Registration ${name} in progress...`)
+         setLoadingMsg(`Registering ${name} in progress...`)
          
         const metadataURI = `https://ipfs.io/ipfs/${created.path}`
         const newData = {  name, metadataURI, age}
