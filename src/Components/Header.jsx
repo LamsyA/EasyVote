@@ -47,14 +47,14 @@ const Header = () => {
         <div className='px-5 w-full flex flex-wrap items-center
         justify-between'>
 
-            <div className='grow flex justify-between items-center p-2 '>
-                <Link to="/" className='flex justify-start items-center space-x-3 cursor-pointer'  >
+            <div className='grow flex justify-between items-center p-2'>
+                <a  className='flex justify-start items-center space-x-3 cursor-pointer'  >
                     <GiVote 
                     className="text-blue-700" size={40}/>
                     <span className="invisible md:visible dark:text-gray-300 text
                     font-bold uppercase text-gradient text-lg">EasyVote
                     </span>
-                </Link>
+                </a>
 
                 <div className='flex  items-end  justify-center dark:text-[#ebff11]
                  text-[#ffac11] uppercase shadow-sm mt-4'> 

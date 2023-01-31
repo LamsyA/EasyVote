@@ -28,12 +28,12 @@ const isWallectConnected = async () => {
     })
 
     window.ethereum.on('accountsChanged', async () => {
-      setGlobalState('connectedAccount', accounts[0].toLowerCase())
+      setGlobalState('connectedAccount', accounts[0])
       await isWallectConnected()
     })
 
     if (accounts.length) {
-      setGlobalState('connectedAccount', accounts[0].toLowerCase())
+      setGlobalState('connectedAccount', accounts[0])
     } else {
       alert('Please connect wallet.')
       console.log('No accounts found.')

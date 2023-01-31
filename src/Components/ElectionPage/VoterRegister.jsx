@@ -55,7 +55,9 @@ const VoterRegister = () => {
      
    await addVoter(newData) 
    setAlert(`${name} Successfully Added...`)
+   window.location.reload()
     closeToggle()
+    
     } catch (error){
       console.log("Error Uploading Data: ", error)
       setAlert("Action Reverted ", 'red')

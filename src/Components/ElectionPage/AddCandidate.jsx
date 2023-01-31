@@ -59,6 +59,7 @@ const AddCandidate = () => {
    await addCan(newData)
   //  console.log(newData)
      setAlert(`${name} Successfully Added...`)
+     window.location.reload()
     closeToggle()
     } catch (error){
       // console.log("Error Uploading Data: ", error)
