@@ -18,7 +18,7 @@ const connectWallet = async () => {
   }
 }
 
-const isWallectConnected = async () => {
+const isWalletConnected = async () => {
   try {
     if (!ethereum) return alert('Please install Metamask')
     const accounts = await ethereum.request({ method: 'eth_accounts' })
@@ -29,7 +29,7 @@ const isWallectConnected = async () => {
 
     window.ethereum.on('accountsChanged', async () => {
       setGlobalState('connectedAccount', accounts[0])
-      await isWallectConnected()
+      await isWalletConnected()
     })
 
     if (accounts.length) {
@@ -44,7 +44,7 @@ const isWallectConnected = async () => {
 }
 
 
-const getEtheriumContract = async () => {
+const getEthereumContract = async () => {
   const connectedAccount = getGlobalState('connectedAccount')
 
   if (connectedAccount) {
@@ -65,7 +65,7 @@ const getEtheriumContract = async () => {
 
 const startElect = async () => {
   try {
-   const contract = await getEtheriumContract()
+   const contract = await getEthereumContract()
     const account = getGlobalState('connectedAccount')
     const started =  await contract.methods.startElection().send({from: account}).then(function(receipt) {
     console.log("Election Started Successfully");
@@ -82,7 +82,7 @@ const startElect = async () => {
 
 const startElectStatus = async () => {
   try {
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
      const account = getGlobalState('connectedAccount')
      const start = await contract.methods.getStartedValue().call()
     // console.log(start)
@@ -97,7 +97,7 @@ const startElectStatus = async () => {
 
 const endElect = async () => {
   try {
-   const contract = await getEtheriumContract()
+   const contract = await getEthereumContract()
     const account = getGlobalState('connectedAccount')
     const end =  await contract.methods.endElection().send({from: account}).then(function(receipt) {
     // console.log(end);
@@ -114,7 +114,7 @@ const endElect = async () => {
 
 const endElectStatus = async () => {
   try {
-   const contract = await getEtheriumContract()
+   const contract = await getEthereumContract()
     const account = getGlobalState('connectedAccount')
     const ended = await contract.methods.getEndedValue().call()
     // console.log(ended)
@@ -129,7 +129,7 @@ const endElectStatus = async () => {
 
 const electionStatus = async () => {
   try {
-   const contract = await getEtheriumContract()
+   const contract = await getEthereumContract()
   const account = getGlobalState('connectedAccount')
   const status = await contract.methods.getElectionStatus().call({from: account})
     // console.log(status)
@@ -143,7 +143,7 @@ const electionStatus = async () => {
 
 const addCan = async ({ address, age, name ,metadataURI }) => {
   try {
-  const contract = await getEtheriumContract()
+  const contract = await getEthereumContract()
     const account = getGlobalState('connectedAccount')
    const candidate =  await contract.methods.addCandidate(address, age, name ,metadataURI ).send({ from: account})
         //  console.log(candidate)
@@ -160,7 +160,7 @@ const addCan = async ({ address, age, name ,metadataURI }) => {
 
 const addVoter = async ({ name ,metadataURI, age }) => {
   try {
-  const contract = await getEtheriumContract()
+  const contract = await getEthereumContract()
     const account = getGlobalState('connectedAccount')
    const candidate =  await contract.methods.Addvoter(name ,metadataURI, age ).send({ from: account})
      
@@ -175,7 +175,7 @@ const addVoter = async ({ name ,metadataURI, age }) => {
 
 const voterVote = async ({ address ,id}) => {
   try {
-  const contract = await getEtheriumContract()
+  const contract = await getEthereumContract()
     const account = getGlobalState('connectedAccount')
    const newVote =  await contract.methods.vote(address , id).send({ from: account})
       
@@ -189,7 +189,7 @@ const voterVote = async ({ address ,id}) => {
 
 const getEachVoter = async () => {
   try {
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
      const account = getGlobalState('connectedAccount')
     
      const eachVoter = await contract.methods.getVoterData().call({from: account})
@@ -203,7 +203,7 @@ const getEachVoter = async () => {
 
  const allCandidateVotes =async () => {
   try {
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
      const account = getGlobalState('connectedAccount')
      const allVotes = await contract.methods.getAllCandidateVotes().call({from: account})
      setGlobalState('allVotes', allVotes)
@@ -215,7 +215,7 @@ const getEachVoter = async () => {
 
 const winner =async () => {
   try {
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
      const account = getGlobalState('connectedAccount')
      const winnerDetails = await contract.methods.getWinnerDetails().call({from: account})
      setGlobalState('winnerDetails', winnerDetails)
@@ -229,7 +229,7 @@ const getCandidate = async () => {
   try {
     if (!ethereum) return alert('Please install Metamask')
 
-   const contract = await getEtheriumContract()
+   const contract = await getEthereumContract()
    const account = getGlobalState('connectedAccount')
     const allCandidate = await contract.methods.getCandidate().call({ from: account})
     // console.log("returnValue1: ",allCandidate)
@@ -256,7 +256,7 @@ const getVoter = async () => {
   try {
    if (!ethereum) return alert('Please install Metamask')
 
-    const contract = await getEtheriumContract()
+    const contract = await getEthereumContract()
    const account = getGlobalState('connectedAccount')
     const allVoters = await contract.methods.getVoterList().call({ from: account})
     // console.log("return Voters: ",allVoters)
@@ -283,8 +283,8 @@ const reportError = (error) => {
 
 
 export {connectWallet,
- isWallectConnected,
-  getEtheriumContract,
+ isWalletConnected,
+  getEthereumContract,
   startElect,
  endElect,
   getCandidate,

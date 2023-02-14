@@ -8,7 +8,7 @@ import {  connectWallet,
      electionStatus,
     getCandidate,
      getVoter,
-      isWallectConnected,
+      isWalletConnected,
       startElectStatus,
       winner} from './Blockchain.services'
 
@@ -36,7 +36,7 @@ const App = () => {
     const loadData = async () => {
       console.log('Blockchain loaded')
       setLoaded(true);
-      const result = await isWallectConnected()
+      const result = await isWalletConnected()
    await     startElectStatus()
    await getCandidate() 
    await winner()

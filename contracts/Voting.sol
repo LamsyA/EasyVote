@@ -8,7 +8,7 @@ contract Voting {
     using Counters for Counters.Counter;
 
     Counters.Counter public _voterId;
-    Counters.Counter public _candidateId;
+    Counters.Counter public _id;
 
     bool started;
     bool ended;
@@ -72,8 +72,8 @@ contract Voting {
     }
 
     /* <-----------------------Candidate Details---->  */
-    struct Candidate {
-        uint256 candidateId;
+    struct CandidateStruct {
+        uint256 id;
         uint256 age;
         string name;
         uint256 voteCount;
@@ -82,7 +82,7 @@ contract Voting {
     }
 
     event CreateCandidate(
-        uint256 indexed candidateId,
+        uint256 indexed id,
         uint256 age,
         string name,
         uint256 voteCount,
@@ -91,15 +91,15 @@ contract Voting {
     );
 
     address[] private candidateAddress;
-    mapping(address => Candidate) private candidates;
+    mapping(address => CandidateStruct) private candidates;
 
     //<----------------voters details----------->
 
     address[] private votedVoters;
     address[] private votersAddress;
-    mapping(address => Voter) private voters;
+    mapping(address => VoterStruct) private voters;
 
-    struct Voter {
+    struct VoterStruct {
         uint256 voter_voterId;
         string voter_name;
         address voter_address;
@@ -135,14 +135,14 @@ contract Voting {
             "Candidate with this address already exists"
         ); // check if candidate address already exists
         require(_age >= 18, "Ops! you are not eligible to be a Candidate");
-        _candidateId.increment();
-        uint256 idNumber = _candidateId.current();
+        _id.increment();
+        uint256 idNumber = _id.current();
 
-        Candidate storage candidate = candidates[_address];
+        CandidateStruct storage candidate = candidates[_address];
 
         candidate.age = _age;
         candidate.name = _name;
-        candidate.candidateId = idNumber;
+        candidate.id = idNumber;
         candidate.voteCount = 0;
         candidate._address = _address;
         candidate.ipfs = _ipfs;
@@ -170,7 +170,7 @@ contract Voting {
     function getCandidateData(address _address)
         public
         view
-        returns (Candidate memory)
+        returns (CandidateStruct memory)
     {
         return (candidates[_address]);
     }
@@ -186,7 +186,7 @@ contract Voting {
         _voterId.increment();
 
         uint256 idNumber = _voterId.current();
-        Voter storage voter = voters[msg.sender];
+        VoterStruct storage voter = voters[msg.sender];
         require(voter.voter_allowed == 0);
 
         voter.voter_allowed = 1;
@@ -217,7 +217,7 @@ contract Voting {
         for (uint256 i = 0; i < candidateAddress.length; i++) {
             if (
                 candidateAddress[i] == _candidateAddress &&
-                candidates[candidateAddress[i]].candidateId == _candidateVoteId
+                candidates[candidateAddress[i]].id == _candidateVoteId
             ) {
                 voteExists = true;
                 break;
@@ -231,7 +231,7 @@ contract Voting {
         public
         voteIdExists(_candidateAddress, _candidateVoteId)
     {
-        Voter storage voter = voters[msg.sender];
+        VoterStruct storage voter = voters[msg.sender];
 
         require(!voter.voter_voted, "You have already voted");
         require(
@@ -240,7 +240,7 @@ contract Voting {
         );
         require(voter.voter_allowed != 0, "you have no right to vote");
         require(
-            candidates[_candidateAddress].candidateId != 0,
+            candidates[_candidateAddress].id != 0,
             "Invalid candidate address"
         );
 
@@ -259,7 +259,7 @@ contract Voting {
     function getVoterDetails(address _address)
         public
         view
-        returns (Voter memory)
+        returns (VoterStruct memory)
     {
         return (voters[_address]);
     }
@@ -268,7 +268,7 @@ contract Voting {
         return votedVoters;
     }
 
-    function getVoterData() public view returns (Voter memory) {
+    function getVoterData() public view returns (VoterStruct memory) {
         return (voters[msg.sender]);
     }
 
@@ -290,7 +290,7 @@ contract Voting {
         address winnerAddress;
         for (uint256 i = 0; i < candidateAddress.length; i++) {
             address candidateAddr = candidateAddress[i];
-            Candidate storage candidate = candidates[candidateAddr];
+            CandidateStruct storage candidate = candidates[candidateAddr];
             if (candidate.voteCount > maxVotes) {
                 maxVotes = candidate.voteCount;
                 winnerName = candidate.name;
@@ -305,7 +305,6 @@ contract Voting {
         view
         returns (address[] memory, uint256[] memory)
     {
-        
         address[] memory candidateAddresses = new address[](
             candidateAddress.length
         );
@@ -314,7 +313,7 @@ contract Voting {
         );
         for (uint256 i = 0; i < candidateAddress.length; i++) {
             address candidateAddr = candidateAddress[i];
-            Candidate storage candidate = candidates[candidateAddr];
+            CandidateStruct storage candidate = candidates[candidateAddr];
             candidateAddresses[i] = candidateAddr;
             candidateVotes[i] = candidate.voteCount;
         }
