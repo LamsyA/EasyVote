@@ -5,7 +5,6 @@ import { setAlert, setGlobalState, setLoadingMsg, useGlobalState } from '../../s
 import { create } from 'ipfs-http-client'
 import { Buffer } from 'buffer'
 import { addVoter } from '../../Blockchain.services'
-import Loading from '../Loading'
 import VoterDashboard from './VoterDashboard'
 import { useNavigate } from 'react-router-dom'
 
@@ -59,7 +58,7 @@ const VoterRegister = () => {
         const newData = {  name, metadataURI, age}
      
        const result = await addVoter(newData) 
-        console.log("Added")
+        
         if (result === true ) { 
           setAlert(`${name} Successfully Added...`)}
           else { setAlert("Error adding your details", "red") }

@@ -30,6 +30,7 @@ const Vote = () => {
           const vote = { address,id}
           setLoadingMsg("Your Vote will be reverted if the poll is not opened for voting. Please wait...")
       const result = await voterVote(vote)
+      
      if (result === true ) { 
       setAlert( "Successfully Voted!");}
       else { setAlert("Error Voting ", "red") }
